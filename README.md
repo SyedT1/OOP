@@ -8,5 +8,7 @@
 
 
 
-### Resources
-+ [Goodreads - Top](https://www.goodreads.com/search?q=java&qid=)
+## Resources
+### Goodreads
+  + [Java Programming](https://www.goodreads.com/shelf/show/java-programming)
+  + [Java Books](https://www.goodreads.com/shelf/show/java)
