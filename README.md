@@ -4,7 +4,7 @@
 ![alt text](https://github.com/SyedT1/Java/blob/main/img/1_iIXOmGDzrtTJmdwbn7cGMw%20(1).jpg)
 
 
-![alt text](https://github.com/SyedT1/Cpp/blob/master/img/java-oops.jpg)  
+![alt text](https://github.com/SyedT1/Java/blob/main/img/java-oops.jpg)  
 
 
 
