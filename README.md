@@ -12,3 +12,4 @@
 ### Goodreads
   + [Java Programming](https://www.goodreads.com/shelf/show/java-programming)
   + [Java Books](https://www.goodreads.com/shelf/show/java)
+  + [William Fiset](https://github.com/williamfiset/Algorithms)
