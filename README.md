@@ -8,7 +8,11 @@
 
 
 
-## Resources
+## RES(Update Feb 21')
   + [Java Programming-Goodreads Search](https://www.goodreads.com/shelf/show/java-programming) and [Java Books-Goodreads search](https://www.goodreads.com/shelf/show/java)
   + [William Fiset-Github](https://github.com/williamfiset/Algorithms)
   + [Udemy - Intro to Java](https://www.udemy.com/course/java-programming-basics/)
+
+## RES(New Jul 21')
++ [Elegant objects](https://www.elegantobjects.org/)
+   + [Volume 1](https://www.elegantobjects.org/)
