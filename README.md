@@ -15,4 +15,5 @@
 
 ## RES(New Jul 21')
 + [Elegant objects](https://www.elegantobjects.org/)
-   + [Volume 1](https://www.elegantobjects.org/)
+   + [Volume 1](https://www.yegor256.com/elegant-objects.html)
+   + [Volume 2](https://www.goodreads.com/book/show/34993317-elegant-objects)
