@@ -8,6 +8,7 @@
   + [Udemy - Intro to Java](https://www.udemy.com/course/java-programming-basics/)
 
 ## RES(New Jul 21')
-+ [Elegant objects](https://www.elegantobjects.org/)
++ [**Elegant objects**](https://www.elegantobjects.org/)
    + [Volume 1](https://www.yegor256.com/elegant-objects.html)
    + [Volume 2](https://www.goodreads.com/book/show/34993317-elegant-objects)
++ [**Little Java** and _a few patterns_](https://mitpress.mit.edu/books/little-java-few-patterns)
