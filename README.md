@@ -13,4 +13,4 @@
    + [Volume 2](https://www.goodreads.com/book/show/34993317-elegant-objects)
 + [**Little Java** and _a few patterns_](https://mitpress.mit.edu/books/little-java-few-patterns)
 + [**Top Java Blogs**](https://stackify.com/java-blogs-for-programmers-of-all-levels/)
-+ [**interesting.git.ai**]()
++ [**Experimenting with Java**](https://github.com/SyedT2)
