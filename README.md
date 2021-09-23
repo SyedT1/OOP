@@ -3,13 +3,12 @@
 ![alt text](https://github.com/SyedT1/Java/blob/main/img/java-oops.jpg)  
 
 
-## Upd Jul 21'
+## Books
 + [**Elegant objects**](https://www.elegantobjects.org/)
    + [Volume 1](https://www.yegor256.com/elegant-objects.html)
    + [Volume 2](https://www.goodreads.com/book/show/34993317-elegant-objects)
 + [**Little Java** and _a few patterns_](https://mitpress.mit.edu/books/little-java-few-patterns)
-+ [**Top Java Blogs**](https://stackify.com/java-blogs-for-programmers-of-all-levels/)
-+ [**Experimenting with Java**](https://github.com/SyedT2)
+
 
 
 ## Courses
@@ -21,6 +20,8 @@
 
 ## Other Resources
   + [William Fiset-Github](https://github.com/williamfiset/Algorithms)
+  + [**Top Java Blogs**](https://stackify.com/java-blogs-for-programmers-of-all-levels/)
+  + [**Experimenting with Java**](https://github.com/SyedT2)
 
 ## Goodreads
 + [Java Programming-Goodreads Search](https://www.goodreads.com/shelf/show/java-programming)
