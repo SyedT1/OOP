@@ -2,9 +2,6 @@
 # [The C++ programming language - Read the Abstractions and Mechanisms](http://index-of.co.uk/Programming/The%20C++%20Programming.Language.4th.Edition.Jun.2013%5BA4%5D.pdf)
 ![alt text](https://github.com/SyedT1/Java/blob/main/img/java-oops.jpg)  
 
-## Upd Feb 21'
-  + [William Fiset-Github](https://github.com/williamfiset/Algorithms)
-  + [Udemy - Intro to Java](https://www.udemy.com/course/java-programming-basics/)
 
 ## Upd Jul 21'
 + [**Elegant objects**](https://www.elegantobjects.org/)
@@ -19,6 +16,11 @@
 + [Object Oriented Java Programming: Data Structures and Beyond Specialization](https://www.coursera.org/specializations/java-object-oriented)
 + [Object Oriented Programming in Java Specialization](https://www.coursera.org/specializations/object-oriented-programming)
 + [OOP - University Of Cambridge](https://www.cl.cam.ac.uk/teaching/1920/OOProg/materials.html)
++ [Udemy - Intro to Java](https://www.udemy.com/course/java-programming-basics/)
+
+
+## Other Resources
+  + [William Fiset-Github](https://github.com/williamfiset/Algorithms)
 
 ## Goodreads
 + [Java Programming-Goodreads Search](https://www.goodreads.com/shelf/show/java-programming)
