@@ -1,5 +1,6 @@
 # [Learn Java](https://docs.oracle.com/javase/tutorial/index.html)  
-
+# [C++ - OOP](http://index-of.co.uk/Programming/The%20C++%20Programming.Language.4th.Edition.Jun.2013%5BA4%5D.pdf)
+ + **Abstraction Mechanisms
 ![alt text](https://github.com/SyedT1/Java/blob/main/img/java-oops.jpg)  
 
 ## Upd Feb 21'
