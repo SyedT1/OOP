@@ -14,3 +14,8 @@
 + [**Little Java** and _a few patterns_](https://mitpress.mit.edu/books/little-java-few-patterns)
 + [**Top Java Blogs**](https://stackify.com/java-blogs-for-programmers-of-all-levels/)
 + [**Experimenting with Java**](https://github.com/SyedT2)
+
+
+## Courses
++ [Object Oriented Java Programming: Data Structures and Beyond Specialization](https://www.coursera.org/specializations/java-object-oriented)
++ [Object Oriented Programming in Java Specialization](https://www.coursera.org/specializations/object-oriented-programming)
