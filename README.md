@@ -1,3 +1,4 @@
+# Consider OOP to be LEGOS
 # [Learn Java](https://docs.oracle.com/javase/tutorial/index.html)  
 # [The C++ programming language - Read the Abstractions and Mechanisms](http://index-of.co.uk/Programming/The%20C++%20Programming.Language.4th.Edition.Jun.2013%5BA4%5D.pdf)
 ![alt text](https://github.com/SyedT1/Java/blob/main/img/java-oops.jpg)  
