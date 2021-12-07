@@ -54,6 +54,7 @@ public:
         }
         return *this;
     }
+    //jinish
     int get_num_of_assigned()
     {
         return assigned_tasks;
