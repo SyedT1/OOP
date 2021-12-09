@@ -3,24 +3,23 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package javaapplication4;
-
-import users.*;
-
+package veh;
+import java.lang.*;
+import java.util.*;
+import usr.*;
 /**
  *
  * @author thinker
  */
-public class JavaApplication4 {
+public class Veh {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        Student Asif = new Student(1830032, "Rafiq");
-        //System.out.println(Asif.getClass().getName()+'@'+Integer.toHexString(Asif.hashCode()));
-        System.out.println(Asif);
+        SportsCar tesla = new SportsCar(1000,"rear wing spoiler", "car","tesla", "US12033");
+        System.out.println(tesla.show());
     }
-
+    
 }
