@@ -6,6 +6,7 @@
 package javaapplication3;
 
 import java.util.*;
+import users.*;
 
 /**
  *
@@ -19,6 +20,27 @@ public class JavaApplication3 {
     public static void main(String[] args) {
         // TODO code application logic here
         Random r = new Random();
+        int papernums[] = {1, 2, 111, 3, 4, 55, 6, 7, 8, 10};
+        String names[] = {"Roy", "John", "Tahsin", "Anwar", "Fahad", "Fahim", "Shafqat", "Yasin", "Cormen", "Er"};
+        String deptnames[] = {"SETS", "SLASS", "SOB"};
+        String papers[] = {"X Theory", "Lo Regularization", "Gradient Prior", "Y Theory"};
+        ResearchStud[][][] IUB = new ResearchStud[3][][];
+        for (int i = 0; i < IUB.length; i++) {
+            IUB[i] = new ResearchStud[2][];
+            for (int j = 0; j < IUB[i].length; j++) {
+                IUB[i][j] = new ResearchStud[6];
+                for (int k = 0; k < IUB[i][j].length; k++) {
+                    IUB[i][j][k] = new ResearchStud(papers[r.nextInt(3)],papernums[r.nextInt(10)],10000,names[r.nextInt(10)],deptnames[r.nextInt(2)]);
+                }
+            }
+        }
+        for(ResearchStud i[][]:IUB){
+            for(ResearchStud j[]:i){
+                for(ResearchStud k:j){
+                    System.out.printf("Name of the Student is = %s and his paper is %s\n",k.getName(),k.getTopic());
+                }
+            }
+        }
         /*
         Initializing and using a 3D Array
         int[][][] arr = new int[3][][];
@@ -80,7 +102,8 @@ public class JavaApplication3 {
                     }
                 }
             }
-        }*/
+        }
+        /*
         int[][][][][] D5 = new int[5][][][][];
         for (int i = 0; i < D5.length; i++) {
             D5[i] = new int[4][][][];
@@ -109,7 +132,8 @@ public class JavaApplication3 {
                     }
                 }
             }
-        }
+        }*/
+
     }
 
 }
