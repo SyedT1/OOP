@@ -41,8 +41,7 @@ public class Week7trial {
                     break;
             }
         }
-        for (int i = 0; i < wp.size(); i++) {
-            Weapon chk = wp.get(i);
+        for (Weapon chk:wp) {
             if (chk instanceof Grnde) {
                 System.out.println(((Grnde) chk).getName() + " " + ((Grnde) chk).getReg());
             } else if (chk instanceof Pstol) {
