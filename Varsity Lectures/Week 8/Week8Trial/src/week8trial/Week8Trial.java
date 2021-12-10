@@ -11,11 +11,16 @@ package week8trial;
  */
 public class Week8Trial {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        // TODO code application logic here
+        String str = "123";
+        int x = Integer.parseInt(str);
+        System.out.println(x);
+        int y = 1333;
+        String yo = Integer.toString(y);
+        System.out.println(y);
+        Integer a = 10;
+        byte b = a.byteValue();
+        System.out.println(b);
     }
-    
+
 }
