@@ -1,0 +1,366 @@
+2021-11-01 -- Scratchpad of CSE213 (Sec-2)
+==========================================
+
+
+Introduction to Java Array:
+============================
+
+When we declare a java array it becomes an instance of that corrosponding IMPLICIT array class
+
+Array declaration in C++: 	
+	type-of-element		arrayName	[size]	;
+	int			arr		[10];
+	ComplexNo		complexArr	[10];
+
+Array declaration in Java: 	
+	implicitArrayClassName	classHandleName		;
+	int[]			intArr			;
+	ComplexNo[]		copmlexArr		;
+
+	Student			asif			;
+
+class int[] {
+	public int length;
+	//implicit pointer, say p
+	//this is an implicit class, which we don't (WE CAN'T define)
+	public int[](int val){ length = val; p = new int[length]; }
+}
+
+public class ComplexNo{...}
+
+public class ComplexNo[] {.....}
+
+public class SomeClass{
+
+	public static void printArray(int[] a){
+		for(i=0;i<a.length; i++){
+			System.out.print(a[i]+" ");
+		}
+
+	}
+}
+
+public class AnotherClass{
+	int[] arr;
+
+	public AnotherClass(){
+		//Student asif;
+		//asif = new Student();
+		arr = new int[10]; //arr = new int[](10);
+		SomeClass.printArray(arr);
+	}
+}
+
+int[] arr;
+Depending on the compiter, some compiler also accept "int arr[]" notation for array declaration
+
+================================================================================
+
+C++: int cppArr[10];
+Java: int[] javaArr = new int[10];
+
+C++ array name (cppArr) represents: 
+	- THE BASE ADDRESS OF THE CONTENIOUS MEMORY GIVEN TO THAT ARRAY
+	- ARRAY NAME is nothing but an address
+	- int *ptr = new int[10];//assume ptr store byte no 100. So array bytes are: 100 to 139
+	  loop i(0 to <10): ptr[i]=i;
+	- cout<< ptr;		// 100
+	- cout<< ptr+2;		// 108
+	- cout<< *(ptr+2);	// 2
+	- cout<< ptr[2];	// 2
+
+	- when we write like: ptr[2], 
+		compiler applies pointer arithmetic internally like: *(ptr+2);
+
+	- loop: cout<<cppArr[i];	//cout<< *(cppArr+i);
+
+Java array name (javaArr) represents: HANDLE of the implicit-Array-Class
+
+Continuation of Java Array:
+----------------------------
+	arrayClassName	handle;
+	handle = new ....
+
+	Case-1: array of premitives
+	int[] intArr;
+	intArr = new int[n];	//elements are integer
+	//Now it is ready to store integers in the intArr[i]
+	
+
+	Case-2: array of class-instances (objects)
+	Student[] studArr = new Student[n]; //elements are Student handle, need instantiation
+	//Now it is NOT YET ready to store Student instances in the studArr[i]
+	//Here memory is allocated for the Student handles inside Student-ArrayClass
+	//instance, and the length field is set to n.
+
+	//At this point, we need one more level of allocation for the handles(studArr[i])
+	//before using them as client to access public fields (not recommended)
+	//or to call a non-private method. Otherwise, we will get NullPointerException
+
+	for(i=0;i<studArr.length; i++){
+		studArr[i] = new Student();
+		studArr[i].doSome();
+	}
+
+	C++: int *ptr = NULL;
+	ptr itself needs memory (4/8 bytes, 32/64 bit addressing)
+
+	Student asif;	asif.setStudInfo();			//NullPointerException
+	Student luna = new Student();	luna.setStudInfo();	//OK
+
+2-D Array:
+----------
+arrayHandle = new typeOfElement[ noOFElements ];
+
+int[] oneDArr;		//assume, we want to store 10 integers
+oneDArr = new int[10];
+
+int[][] twoDArr;	//assume, we want to have 3 rows & 2 cols in that 2-D array
+
+//twoDArr = new int [6] ;	//Wrong
+twoDArr =   new	 int	[3]	[];
+
+	arr[i][j]
+
+
+
+
+twoDArr = new int [3] [];	//ok
+loop i: 0 to <twoDArr.length {
+	twoDArr[i] = new int[2];
+}
+
+NOTE: Follow discussion explained with diagrams in video recordings
+Now lets try this in NetBeans
+
+3-D Array
+String[][][] rubicsCube; 
+//asuume this 3D array has 6 sides, each side has 3 rows, each row has 3 cols
+
+rubicsCube = new   int   [6]	[][];
+
+for(i=0;i< rubicsCube.length; i++){
+	//rubicsCube[i]: who are they? 2D array handle (currently null)
+	rubicsCube[i] = new int [3]	[];
+	for(j=0;j< rubicsCube[i].length; j++){
+		//rubicsCube[i][j]: represents row, 1D array handle (currently null)
+		rubicsCube[i][j] = new int[3];
+		for(k=0;j< rubicsCube[i][j].length; k++){
+			rubicsCube[i][j][k] = ??;
+		}
+	}
+
+}
+
+val = rubicsCube.length;	//6
+
+
+Output:
+
+Side[0] elements of Rubics Cube:
+red 	green	yellow
+red	blue	blue
+white	orange	yellow
+
+Side[1] elements of Rubics Cube:
+...	...	...
+..	...	...
+...	...	...
+
+.....
+
+
+
+
+==============================================================================================
+Console Input/output in C++:
+----------------------------
+
+namespace std{
+	istream cin;
+	//code to link cin with KB
+
+	ostream cout;
+	//code to link cout with screen (default console output device)
+}
+
+cin>>x;	//cin is an istream object
+		cin.operator>>(x);
+istream myIn;
+myIn>>x;	//problem
+//code to link myIn (opening the stream) for default console input device (KB)
+myIn.open(....);
+myIn>>x;	//No problem	myIn.operator>>(x);
+
+ostream myOut;
+myOut<<x;	//problem
+//code to link myOut with screen (default console output device)
+myOut<<x;	//NO problem
+
+Console Input/Output in java:
+============================
+
+cout<<n;
+Syetem.out.println(n);
+
+PrintStream myOut = new PrintStream();
+//code to link myOut with screen (default console output device)
+myOut.println(n);
+
+cin>>n;
+n = System.in.read();
+
+Convenient way of taking console input is to use Scanner class, instead
+of using InputStream classes's read method
+
+Scanner is a tool. Scanner has methods to convert the source of the scan
+to different data types.
+
+source of scan can be:
+	- console input(KB, represented by System.in)
+	- physical file
+	- barcode scanner / OCR, etc..
+
+Therefore, when we instanciate a Scanner, we need to specify the 
+	source of the scan in the constructor
+
+---------------
+
+public class SomeClass{
+
+	public void printSome(){
+
+		System.out.println("Hello World");
+		//System class constructor link out with screen
+		//System class constructor link in with KB
+
+		PrintStream myOut = new PrintStream();
+		myOut.println("Hello World"); //problem
+		code to link myOut with screen
+		myOut.println("Hello World"); // No problem
+	}
+}
+
+==========================================================
+
+
+JVM:
+if main were non-static:
+MainClass obj = new MainClass();
+obj.main();
+
+main as static:
+MainClass.main();
+
+-----------------------------------------
+Initializer list in Array
+
+C++:
+-----
+int x;
+x=10;		//assignment
+int y = 20;	//initialization
+
+int arr1[];	//Illegal
+int arr1[5];	//legal
+loop: arr1[i] = ..;
+
+int arr2[4] = {1,2,3,4};	//initialization via initializer list
+int arr2[] = {11,22,33,44,55};	//initialization via initializer list
+
+initializer list handles the memory requirement and allocation
+
+Java:
+-----
+
+int[] arr;
+arr = new int[4];
+
+int[] arr3 = {11,22,33,44,55};
+initializer list will calculate memory requirement, allocation from heap,
+and copy data from the list to allocated memory
+
+String str1 = new String("HW");
+String str2 = "Welcome";	equivalent of {'W','e','l','c','o','m','e'};
+
+
+================================================================================
+Next class:
+
+Introduction to Inheritance:
+==============================================
+
+
+Mursalin
+Atika Sultana
+Ishraque
+----------------
+Atika Sultana11:45 AM
+keya cosmetics Ltd.
+
+1.Corporate Staff / FActory Manager
+
+ - type - attendance - salary - shift - parttime 
+
+2.Customer
+	Goal-1:
+	Goal-2: 
+	Goal-3:
+	Goal-4:
+
+ - type - offer - shop owner - customer info - feedback
+
+3.Administratative officer - staff info , software info ,customer info , finance and banking info, stock
+
+4.Finance officer - Bookkeeping, Budget , Management of Taxes,Company’s Investments, Financial Reporting and analysis
+
+5. Developer Team- update , error , bug report , activity , faq
+
+
+
+====================================
+App: IRAS
+
+User-1: Student
+	Goal-1: Student can Register courses for upcoming next semester only
+	Goal-2: Evaluate faculty of registered courses for current semester only
+
+Islam Bin Mursalin11:53 AM
+Workflow: Apply for training
+•	Log in 
+•	Check if the trainee has any defaults
+•	If trainee has defaults then warn and prohibit access.
+•	View courses.
+•	Select course.
+•	Check pre-requisite.
+•	Check if previous experience/ certificates require for selected course
+•	Verify license, certificates.
+•	If YES, then proceed.
+•	If NO, redirect to pre-requisite
+•	Confirm selected course.
+•	Generate money receipt.
+•	Redirect to payment gateway.
+•	If payment done send confirmation.
+
+
+BERC
+
+1. Ministry officer.
+
+2. Finance Officer.
+
+3. Customer.
+
+4. Admin of Power.
+
+5. HR officer.
+
+
+
+
+
+
+
+
+
+

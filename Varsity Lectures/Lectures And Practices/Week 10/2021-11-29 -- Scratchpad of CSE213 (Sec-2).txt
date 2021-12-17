@@ -1,0 +1,129 @@
+2021-11-29 -- Scratchpad of CSE213 (Sec-2)
+==========================================
+
+enum: Enumerated data type
+
+enum Color{
+	"RED", "BLUE", "GREEN"
+}
+
+Left-hand-side-of-DOT		.	Right-hand-side-of-DOT
+===================================================================
+
+client(handle/class/structName)	.	method/field
+-----------------------------------------------------
+asif				.	id
+asif				.	printCgpa()
+Student				.	uniName
+Student				.	showUniName()
+
+enumName			.	sequenceName
+----------------------------------------------------
+Color				.	RED
+Color				.	BLUE
+
+
+int[] sideLengths = {10,12,13,8,7};
+Polugon p = new Polygon(sideLengths);
+
+p.setColor(7);	//7 is a color code
+p.setColor(Color.RED);
+
+
+=================================================================================
+
+Exception Handling (continuation):
+==================================
+
+'throw': to explicitly throw an exception by the programmer:
+=============================================================
+ - Sometmes we want a specific Exception to be thrown if a specific condition arise,
+	but JVM does not consider that context as an exception. Therefore no
+	exception will be automatically throws by the JVM. In that case we have
+	to explicitly throw an exception instance.
+	Ex:
+	if(......){
+		throw new ArithmeticException();
+	} 
+
+ - Also when we create our own exception by extending any of the exception class
+	from library, JVM is unaware of in which context to throw our own
+	custom-exception. In that case also we need to explicitly throw that
+	exception.
+	Ex:
+	public class MyException extends AnyExceptionClassFromLibrary{
+
+	}
+
+	if(....)
+		throw new MyException ();
+
+=======================================================================
+
+'throws': to propagate the handling responsibility back to the caller:
+======================================================================
+
+Case-1: Where CHECKED-Exceptions are handled by the method author
+-------
+public class MainClass{
+
+	p s v main(...){
+		Someclass obj = new SomeClass();
+		obj.someMethod();
+	}
+}
+
+public class SomeClass{
+	public void someMethod(){
+		try{
+			//critical statements have potential of CHECKED-exception
+		}
+		catch(SomeException1 e){...}	
+		catch(SomeException2 e){...}	
+		catch(SomeException3 e){...}
+		finally{...}	
+	}
+}
+
+
+Case-2: Where CHECKED-Exceptions are NOT-handled by the method author
+-------
+public class MainClass{
+
+	p s v main(...){
+		try{
+			Someclass obj = new SomeClass();
+			obj.someMethod();
+		}
+		catch(SomeException1 e){...}	
+		catch(SomeException2 e){...}	
+		catch(SomeException3 e){...}
+		finally{...}	
+	}
+}
+
+public class SomeClass{
+	public void someMethod() throws SomeException1, SomeException2 SomeException3 {
+		//critical statements have potential of CHECKED-exception
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

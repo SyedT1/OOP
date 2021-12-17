@@ -1,0 +1,480 @@
+2021-11-10 -- Scratchpad of CSE213 (Sec-4)
+==========================================
+
+Understanding 'Object' class:
+-----------------------------
+public class A{...}
+Q: Who is the superclass of A?
+A: class 'Object'
+
+
+public class B extends A{...}	
+Q: Who is the superclass of B?
+A: class 'A'
+
+	- Object is a special class in Java.
+	- Object class is the ADAM of java species. It means, every java class is directly
+	   or indirectly inherits all fields & methods of 'Object' class
+	- You will understand more on some of these inherited methods of 'Object' class
+	   after doing OS course
+
+
+==============================================================================================
+
+Method overriding:
+==================
+- If a subclass author is not happy with the definition of an inherited method of the
+	superclass, then the subclass author can redefine the method as its own
+	method. In that case, there will method-overloading violation (because
+	both inherited and own version will have SAME parameter list). Therefore
+	the compiler should deactivate/nullify inherited definition so that there
+	will be no method-overloading voilation.
+	This is called method OVERRIDING.
+
+Case-1: Superclass method/s is/are not overridden
+-------------------------------------------------
+  public class Vehicle{
+	protected fields: brand, model, cc, price
+	public void show(){
+		//print the fields of Vehicle class
+	}
+  }
+
+
+  public class Car extends Vehicle{
+	additional private fields: regNo, noOfSeat,..
+	//show method is inherited from Vehicle class
+  }
+
+  public class MainClass{
+    p s v main(...){
+	Car myCar = new Car();
+	myCar.setInfo();
+	myCar.show();	//Problem: NOt ALL fields are printed, if not Overridden
+    }
+  }
+
+
+Case-2: Superclass method/s is/are overridden in subclass
+---------------------------------------------------------
+  public class Vehicle{
+	protected fields: brand, model, cc, price
+	public void show(){
+		//print the fields
+	}
+  }
+  public class Car extends Vehicle{
+	additional private fields: regNo, noOfSeat,..
+	//inherited show method is deactivated
+	//@Override
+	public void show(){
+		//code to print ALL fields (inherited + additional)
+	}
+  }
+  public class MainClass{
+    p s v main(...){
+	Car myCar = new Car();
+	myCar.setInfo();
+	myCar.show();	//Solved:  ALL fields are printed, Overridden
+    }
+  }
+
+Difference between method overloading and method overriding:
+------------------------------------------------------------
+
+ - In overloading, All versions of the method is available for execution for SAME client, 
+   but in overriding inherited version can never be called for subclass client
+
+- For overloading, ALL versions must have unique parameter list, but in overriding both
+  inherited and own version has same parameter list (hence to avoid ambiguity, deactivate
+  inherited one)
+
+- Overloaded versions may be written in same class, OR 
+  some of them can be written in superclass and some of them can be written in subclass.
+  BUT, overridden versions will be written: one in superclass, and another in subclass
+
+========================================================================================
+
+Relationships among classes:
+----------------------------
+
+a) Inheritance
+	- Extension of pre-existing superclass
+	- Establishes "is-a" relationship
+
+b) Aggregation
+	- A class contains a handle of another pre-existing class, as its field
+	- Establishes "has-a" relationship
+
+	- Aggregation implies a relationship where the aggregated (which is a Preexisting class's
+	   handle as a field of new class being defined) class instance can exist independently 
+	   of the aggregating (the new class) class instance.
+
+	Name of pre-existing class				: String
+	Name of new class					: Student
+	Name of field (handle name of pre-existing class)	: class Student{ 
+									private String name;
+								  }
+
+	    	Example-1: 
+		----------
+		 - Toilet is a preexisting class
+			public class Toilet {....}
+
+		 - Auditorium is the new class being defined	
+			public class Auditorium{
+				private Toilet[] toiletArr;
+			}
+
+		- Here Auditorium is aggregating class, and Toilet is aggregated class,
+		  and Toilet instances exists outside/independent of Auditorium in IUB
+
+	    	Example-2: Totota Corporation
+		-----------------------------
+		 - Engine is a preexisting class
+			public class Engine {....}	
+
+		 - Car is the new class being defined
+			public class Car{
+				private Engine eng;
+			}
+
+		- Here Car is aggregating class, and Engine is aggregated class,
+		  and Engine instances exists outside of Car instance as SPARE parts in Toyota
+
+
+c) Composition
+	- A class contains a handle of another pre-existing class, as its field
+	- Establishes "has-a" relationship
+	- Composition implies a relationship where the composed (which is a Preexisting class's
+	   handle as a field of new class being defined) class instance can NOT exist 
+	   independently of the composing (the new class) class instance.
+
+	    	Example-1: 
+		----------
+		 - Engine is a pre-existing class
+			public class Engine {....}	
+			public class TurboEngine extends Engine {....}	
+
+		 - Car is the new class being defined
+			public class Car{
+				private Engine eng;
+			}
+			public class SportsCar extends Car{
+				
+			}
+
+		- Here Car is composing class, and Engine is composed class,
+		  and Engine instances Cannot exists outside of Car instance in IUB system
+
+d) Association
+	- When One class's method interact with another class's method (using one another),
+	  but there is no "is-a" / "has-a" relationship, then we call it association
+
+Mini classroom Exercise:
+------------------------
+From your own project topic, give example for: 
+
+Project Topic: Flight Training Academy
+
+- Inheritance ("is-a")	: 
+	superclass name	: Instructor
+	subclass name	: TrainingPilot
+ 
+- Aggregarion ("has-a")	:
+	Name of pre-existing class				: Date
+	Name of new class					: Trainee
+	Name of field (handle name of pre-existing class)	: dob, doj
+								  class Trainee{ 
+									private Date dob, doj;
+								  }
+- Composition ("has-a")	:
+	Name of pre-existing class				: TraineeInfo
+	Name of new class					: Trainee
+	Name of field (handle name of pre-existing class)	: class Trainee{ 
+									private TraineeInfo info;
+								  }
+- Association: 
+	user-classname	: Faculty		/	FactoryManager	/ Client
+	used-classname 	: Student		/	Supplier	/ Band
+	use/task	: assigns (assignment)	/	sends(order)    / books
+
+========================================================================================
+
+Polimorphism:
+-------------
+	- Poly: many
+	- Morphing: Smooth transition of image to different form
+
+	- Polymorphism in OOP is the ability of an object to take many forms. 
+	  To simply put, polymorphism in java allows us to perform the same action in many
+	  different ways. It is a feature of the object-oriented programming, which allows a
+	  single task (method) to be performed in different ways (depending on runtime context).
+
+	- Inheritance is involved in acheiving polymorphism (as superclass handle can be used
+	  to represent any subclass instances of the inheritance hierarchy)
+
+	Example:
+	--------
+		Video Game: pubji, Valorent
+
+		- Assume, a warfare game has different types of weapons as resources for the player
+	 		public class Granade{...}
+	 		public class Pistol{...}
+	 		public class Sword{...}
+
+		- To preserve the collected weapons, there need to be 3 DIFFERNT ARRAYs 
+		  (more dynamic collection alternate of Array) for Granade, Pistol & Sword
+			Granade[] granadeArr; //collection of Granade handles
+			Pistol[] pistolArr;
+			Sword[] swordArr;	
+
+			granadeArr[i] = new Granade();
+			PistolArr[i] = new Pistol();
+			swordArr[i] = new Sword();
+
+		- But if we want to maintain only ONE ARRAY instead of three, then we can
+		  introduce a superclass called Weapon, and make Granade, Pistol & Sword
+		  as subclasses, and then we can use a SINGLE array of Weapon
+			public class Weapon{
+				public void overhaul(){...}
+			}
+	 		public class Granade extends Weapon{
+				...
+				@Override
+				public void overhaul(){ //code specific to overhaul a granade }
+			}
+	 		public class Pistol extends Weapon{
+				...
+				@Override
+				    public void overhaul(){ //code specific to overhaul a pistol }				}
+	 		public class Sword extends Weapon{
+				...
+				@Override
+				public void overhaul(){ //code specific to overhaul a sword }		
+			}
+			Weapon[] weaponArr;			
+			weaponArr[i] = new Granade();
+			weaponArr[j] = new Pistol();
+			weaponArr[k] = new Sword();
+			
+			for(....){ weaponArr[i].overhaul(); }
+
+
+		- In Game player's perspective, its not possible to anticipate how many 
+		  resources the player can collect at runtime. Therefore, using array is not a
+		  good option. Hence we can use one of the dynamic collection classes from 
+		  library which can grow on demand in phases. Most of these collection classes
+		  are "generic" too.
+
+		- Let's decide that we are going to use ArrayList collection (also generic) class 
+		  to collect different types of weapons for the player and demonstrate polymorphic
+		  behaviour of a method (common-method or uncommon-method??? We are going 
+		  to discover that)
+
+	----------------------------------------------------------------
+	public class MyStack{	//fixed-sized stack of 10
+		int top;
+		int[] values; //int *valPtr;
+		public MyStack(){ top=-1; values = null; }
+		public MyStack(int n){ top=-1; values = new int[n]; }
+		//methods: push, pop, top
+	}
+
+	p s v main(...){
+		MyStack stk1 = new MyStack(10); 
+		// we can store (push) only integer to this stk1. This is not a generic class
+	}
+
+	Generic class:
+	-------------
+	public class MyGenericStack<E>{	//fixed-sized stack of 10
+		int top;
+		E[] values; //E *valPtr;
+		public MyStack(){ top=-1; values = null; }
+		public MyStack(int n){ top=-1; values = new E[n]; }
+		//methods: push, pop, top
+	}
+
+	public class Book{...}
+	p s v main(...){
+		MyGenericStack<int> stkOfInts = new MyStack<int>(10); 
+		MyGenericStack<Book> stkOfBooks = new MyStack<Book>(10); 
+		MyGenericStack<String> stkOfNames = new MyStack<String>(10); 
+		// we can store (push) any type of premitives/handles to this generic class instance
+	}
+
+
+       Weapon[] wArr = new Weapon[100];
+	pos=-1;
+
+        ArrayList<Weapon> wList = new ArrayList<Weapon>();
+        do{
+            System.out.println("Enter [1] to collect a Granade");
+            System.out.println("Enter [2] to collect a Pistol");
+            System.out.println("Enter [3] to collect a Sword");
+            System.out.println("Enter [4] to view ALL collected weapons");
+            System.out.println("Enter [5] to view collected Granades");
+            System.out.println("Enter [6] to view collected Pistols");
+            System.out.println("Enter [7] to view collected Swords");
+            System.out.println("Enter [8] to overhaul the Granades");
+            System.out.println("Enter [9] to overhaul the Pistols");
+            System.out.println("Enter [10] to overhaul the Swords");
+            System.out.println("Enter [11] to exit");
+            System.out.print("Enter your choice...");
+            ch = s.nextInt();
+	    int pos = -1;
+            switch(ch){
+                case 1:
+			//Setting field values for newly added Granade instance
+			//wArr[++pos] = new Weapon();	//for array implementation
+			//wArr[++pos] = new Weapon(....,...,...);//for array implementation
+			//wArr[pos].setWeapon();
+			//----------------------------------------
+			//Adding instance to AttarList, and then setting field values for 
+			//newly added Granade instance
+			wList.add( new Granade() );	
+			wList.get( wList.size()-1 ).setWeapon();
+			//----------------------------------------
+			//Adding instance to AttarList, and setting field values simulteneously
+			wList.add( new Granade().setWeapon() );	
+
+			break;
+
+------------------------------------------------------------------------
+Another example of polymorphism: (IRAS)
+
+public class User{}
+
+public class Employee extends User{
+	public float getTaxPayable(){
+		//code to calculate tax payable using formula 
+		//based on Basic salary and eturn it
+	}
+}
+
+public class Supplier extends User{
+
+	public float getTaxPayable(){
+		//code to calculate tax payable using formula 
+		//based on Productcategory and bid quotation
+	}
+}
+
+
+User[] users;
+assume users[23] is an Emloyee instance
+assume users[43] is a Supplier instance
+
+to pay salary or to pay bill to employee/supplier, the accountant needs to know the advanceIncomeTax
+to be deducted
+	if(users[i] instanceof Employee) float deductableAmount = users[i].getTaxPayable() * .20;
+	(users[i] instanceof Supplier) float deductableAmount = users[i].getTaxPayable() * .35;
+
+========================================================================================
+
+Advanced 'for' loop:
+--------------------
+
+  - Regular for loop:
+	- regular for loop can be used to access a collection
+	for(initialValueOfLoopVariable; terminatingCondition; howLoopVariableChanges){
+		collectionName[loopVariableAsIndex]=...;
+	}
+
+	- regular for loop can ALSO be used just to iterate a block (Not using any collection)
+	for(int i=1;i<100;i++) { sout(i); }
+
+  - Advanced for loop MUST be used to access a collection ONLY
+	for(typeOfCollectionElement collectionVariableNameToUse: collectionName){
+		collectionVariableNameToUse = .....; //for collection of primitives
+		collectionVariableNameToUse.doSome(); //for collection of handles
+	}
+
+========================================================================================
+Abstract class:
+---------------
+	- It is a class which can't be instantiated/initialized
+	- We can only declare its handle & use it to represent subclass instances
+
+	- Using multiple arrays is not convenient, as well as its not possible to acheive
+	  polimorphic behaviour:
+		public class Granade{...}
+		public class Pistol{...}
+		public class Sword{...}
+		Granade[] granadeArr;
+		Pistol[] pistolArr;
+		Sword[] swordArr;
+
+	- For example, if we want to maintain an ARRAY of weapons within the context of a video game, 
+	  where Weapon is a generalization (superclass) but in reality only subclass instances 
+	  exists within the memory, then we can use Weapon handles to instantiate Granade, 
+	  Pistol and Sword instances, provided that they are subclass of Weapon. This will allow
+	  us to acheive polymorphism (polymorphic behaviour).
+			public class Weapon{...}
+	 		public class Granade extends Weapon{...}
+	 		public class Pistol extends Weapon{...}
+	 		public class Sword extends Weapon{...}
+			Weapon[] weaponArr;			
+			weaponArr[i] = new Granade();
+			weaponArr[j] = new Pistol();
+			weaponArr[k] = new Sword();	
+	- In this example, Weapon qualifies to be an abstract class
+		so we can define Weapon as an abstract class (instead of non-abstract/regular class):
+			public abstract class Weapon{...}
+			OR
+			abstract public class Weapon{...}
+
+	- If there is NO abstract method in a class, still the author can declare the class
+	  as abstract. As a consequence, handle of the class can be declared, but instance
+	  of that class CAN'T be created
+
+	- If there is AN abstract method in a class, then it is mandatory for the author 
+	  to declare the class as an abstract class, too. Now since the class is abstract, then
+	  the only role of the class is to act as a superclass to facilitate inheritance. In that
+	  case, it is mandatory for the subclasses to override all the inherited abstract methods
+
+
+Abstract Method:
+----------------
+	- Abstract method is nothing but the UN-IMPLEMENTED method declared in superclass
+	- It is just the prototype of a method
+	- Since abstract method don't have any implementation within the super class, then
+	  it can't be called using a superclass instance as client (because there is no
+	  implementation of the method, and if that method is called, then the program will crash).
+	  Therefore, if a class has an abstract method, the class MUST be an abstract class
+	- The reverse is not necessarily true. An abstract class can contain non-abstract (REGULAR)
+	  methods too. However, the definition of the method will be inherited in subclasses and only 
+	  subclass instances can be the client of that non-abstract method of the superclass
+
+	- A subclass can override an implented(non-abstract) inherited method, but its optional. But
+	  it is MANDATORY for the subclass to override all non-implemented(abstract) inherited
+	  methods, so that if those methods are called using subclass instance as client, there
+	  exists some definition to execute.
+	
+========================================================================================
+
+Next class to cover (7-NOV-21):
+-------------------------------
+	- Complete sample workflow for a IRAS goal
+	- Discussion on different UML diagrams which are typically used for system design. 
+	  BUT due to time limitation, we will limit ourselves to "UML class-diagram" only.
+	  You will know more UML diagrams related to system design in 
+	  "System Analysis and Design" core course in future
+
+	- Introduction to online tool "lucidchart" to create out class diagram
+
+	- How to use milestone-1 (CRA-report) to construct milestone-2 deliverables:
+		- class diagram
+		- database design (file system)
+ 
+
+
+
+
+
+
+
+
+
+

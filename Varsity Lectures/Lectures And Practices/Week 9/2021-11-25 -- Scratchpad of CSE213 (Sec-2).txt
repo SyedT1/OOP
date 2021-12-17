@@ -1,0 +1,137 @@
+2021-11-25 -- Scratchpad of CSE213 (Sec-2)
+==========================================
+
+Streams that we can use to perform file IO in java:
+===================================================
+
+- Byte stream					[Both for text & binary file]
+	- read/write raw bytes from/to file
+	Classes:
+		Reading: FileInputStream
+		Writing: FileOutputStream
+
+- Character stream				[For text file, recommended]
+	- read/write characters from/to file
+	Classes:
+		Reading: FileReader or Scanner for convenience (File will be source of Scanner)
+		Writing: FileWriter
+
+- Data stream					[For binary file]
+	- read/write different data types as it is (their actual bytes) from/to file
+	Classes:
+		Reading: DataInputStream
+		Writing: DataOutputStream
+
+	As an intermediate layer to increase read/write efficiency, we can use Buffer in between
+	Data & Byte streams
+		Classes: BufferedInputStream & BufferedOutputStream
+------------------------------------------------------------------------------------------------
+- Object stream					[For binary file]
+	- read/write deserialized/serialized instances from/to file
+	Classes:
+		Reading: ObjectInputStream
+		Writing: ObjectOutputStream
+
+	//FileInputStream fis = new FileInputStream("someObjects.bin")
+	//ObjectInputStream ois = new ObjectInputStream(fis);
+
+	Employee obj = new Employee(....);
+	ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("someObjects.bin"));
+	oos.writeObject(obj);
+
+
+	ObjectInputStream ois = new ObjectInputStream(new FileInputStream("someObjects.bin"));
+	Employee e;
+	e = (Employee) ois.readObject();
+	//will read bytes, contructs an instance with those bytes & return the instance
+
+ - Writing/Reading session: Time period between opening and closing of a file with a stream
+
+ - When we start a new session to write class instances to a binary file using 
+	writeObject method ObjectOutputStream class, the file header will be written (or appended) 
+	at the beginning of the writing session to the file. Thereafter the converted bytes of 
+	the instance will be written (or appended) to the file.
+
+	case-1:
+	Employee obj = new Employee(....);
+	ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("someObjects.bin"));
+	oos.writeObject(obj);	
+	oos.close();
+
+	case-2:
+	ArrayList<Employee> empList = new ArrayList<Employee>();
+	loop: empList.add(new Employee(....));	//n Employee instances are added to empList
+	ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("someObjects.bin"));
+	for(Employee e: empList) oos.writeObject(e);
+	oos.close();
+	
+- Conversion process of an instance to a stream of bytes is called 'serialization'
+
+- Conversion process of stream of bytes back to an instance is called 'deserialization'
+
+- By default, NO CLASS instance is allowed to be serialized. Therefore, if we want our class
+	instance to be serialized, the class needs to implement 'Serializable' interface
+
+
+==================================================================================
+
+In Session-1, we want to store 5 instances to the file
+At the end of session-1, file content will be:
+--------------------- Beginning of file ---------------------
+//file header is added since it is the beginning of a session
+//serialized bytes of 5 written instances are written
+------------------------ End of file ------------------------
+
+Next day in Session-2, we want to append 3 more instances to the file
+At the end of session-2, file content will be:
+--------------------- Beginning of file ---------------------
+//file header is added since it is the beginning of a session
+//serialized bytes of 5 written instances are written
+//file header is added since it is the beginning of a session
+//serialized bytes of 3 new instances are written
+------------------------ End of file ------------------------
+
+Next day in Session-3, we want to append 6 more instances to the file
+At the end of session-3, file content will be:
+--------------------- Beginning of file ---------------------
+//file header is added since it is the beginning of a session
+//serialized bytes of 5 written instances are written
+//file header is added since it is the beginning of a session
+//serialized bytes of 3 new instances are written
+//file header is added since it is the beginning of a session
+//serialized bytes of 6 new instances are written
+------------------------ End of file ------------------------
+
+Problem:
+========
+ - When reading session is started, ObjectInputStream gets the header info from the
+	beginning of the file. Then, it use the header info and read rest of the bytes from the 
+	file in segmets and reconstruct the instances from those segmented bytes and return them
+ - However, if there is header in the middle of the file, ReadObject() method will fail to
+	reconstruct an instance from those header bytes because they don't represent bytes
+	of a written instance. At this point an exception will occur and reading operation
+	terminates
+
+
+Solution:
+=========
+ - We have to make sure that file header is written ONLY ONCE at the beginning of the file 
+	( while creating the file for the first time), and we should avoid writing header at
+	the beginning of subsequent sessions.
+
+- At the end of session-3, Expected file content should:
+
+--------------------- Beginning of file ---------------------
+//file header is added since it is the beginning of a session
+//serialized bytes of 5 written instances are written
+//serialized bytes of 3 new instances are written
+//serialized bytes of 6 new instances are written
+------------------------ End of file ------------------------
+
+
+
+
+
+
+
+==================================================================================

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxmlapplicationpkg.DummyTableViewSceneForSec3Controller">
+   <children>
+      <CheckBox fx:id="cppCheckBox" layoutX="41.0" layoutY="13.0" mnemonicParsing="false" text="C++" />
+      <CheckBox fx:id="isJavaCheckBox" layoutX="41.0" layoutY="50.0" mnemonicParsing="false" text="Java" />
+      <ComboBox layoutX="337.0" layoutY="27.0" prefWidth="150.0" />
+      <TableView fx:id="studentTableView" layoutX="97.0" layoutY="100.0" prefHeight="200.0" prefWidth="406.0">
+        <columns>
+          <TableColumn fx:id="idTableColumn" prefWidth="75.0" text="ID" />
+          <TableColumn fx:id="nameTableColumn" prefWidth="145.0" text="Name" />
+            <TableColumn fx:id="cgpaTableColumn" prefWidth="185.0" text="Cgpa" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

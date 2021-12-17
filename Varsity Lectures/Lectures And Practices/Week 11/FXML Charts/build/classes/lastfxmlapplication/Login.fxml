@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="467.0" prefWidth="619.0" style="-fx-background-color: #AAA;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Pane layoutX="124.0" layoutY="109.0" prefHeight="250.0" prefWidth="387.0" style="-fx-background-color: #DDD;">
+         <children>
+            <Label layoutX="89.0" layoutY="53.0" text="User ID" />
+            <Label layoutX="78.0" layoutY="86.0" text="Password" />
+            <TextField layoutX="143.0" layoutY="49.0" />
+            <PasswordField layoutX="143.0" layoutY="82.0" />
+            <Button layoutX="224.0" layoutY="159.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="68.0" text="Submit" />
+            <ComboBox fx:id="usertype" layoutX="142.0" layoutY="118.0" prefWidth="150.0" />
+            <Label layoutX="76.0" layoutY="122.0" text="User Type" />
+            <Label layoutX="173.0" layoutY="163.0" text="Register" textFill="#3b62ff" underline="true" />
+            <Label layoutX="29.0" layoutY="210.0" text="Forgot Password?" textFill="#2666fc" />
+            <Label alignment="CENTER" layoutX="175.0" layoutY="14.0" text="Login">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Label layoutX="263.0" layoutY="22.0" prefHeight="39.0" prefWidth="75.0" text="BLUE" textFill="#dd0000">
+         <font>
+            <Font name="Calibri Bold" size="33.0" />
+         </font>
+      </Label>
+      <Label layoutX="257.0" layoutY="61.0" text="Bangladesh" textFill="WHITE">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
