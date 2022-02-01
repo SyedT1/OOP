@@ -1,6 +1,0 @@
-111,AAA,Supervisor,50000
-222,BBB,Manager,150000
-333,CCC,Driver,25000
-444,DDD,Secretary,60000
-12345,Abc,Executive,80000
-333,ccccc,Manager,120000
