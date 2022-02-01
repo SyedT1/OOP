@@ -37,7 +37,11 @@ public:
 };
 ostream &operator<<(ostream &out, ComplexNo a)
 {
-    out << a.getReal() << "+" << a.getImg() << "i";
+    out << a.getReal();
+    if (a.getImg() != 0)
+    {
+        out << (a.getImg() < 0 ? '-' : '+')<<a.getImg()<<'i';
+    }
     return out;
 }
 int main()
