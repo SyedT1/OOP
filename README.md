@@ -21,4 +21,4 @@
 
 
 ## Other Resources
-  + **[William Fiset-Github](https://github.com/williamfiset/Algorithms)**
+  + **[William Fiset-Algo](https://github.com/williamfiset/Algorithms)**
