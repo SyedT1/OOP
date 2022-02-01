@@ -21,8 +21,4 @@
 
 
 ## Other Resources
-  + [William Fiset-Github](https://github.com/williamfiset/Algorithms)
- 
-## Goodreads
-+ [Java Programming-Goodreads Search](https://www.goodreads.com/shelf/show/java-programming)
-+ [Java Books-Goodreads search](https://www.goodreads.com/shelf/show/java)
+  + **[William Fiset-Github](https://github.com/williamfiset/Algorithms)**
