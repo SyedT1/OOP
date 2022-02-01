@@ -14,16 +14,11 @@
 
 ## Courses
 + [Object Oriented Java Programming: Data Structures and Beyond Specialization](https://www.coursera.org/specializations/java-object-oriented)
+    + **[Object Oriented Programming in Java](https://www.coursera.org/learn/object-oriented-java/)**
 + [Object Oriented Programming in Java Specialization](https://www.coursera.org/specializations/object-oriented-programming)
 + [OOP - University Of Cambridge](https://www.cl.cam.ac.uk/teaching/1920/OOProg/materials.html)
 + [Udemy - Intro to Java](https://www.udemy.com/course/java-programming-basics/)
 
 
 ## Other Resources
-  + [William Fiset-Github](https://github.com/williamfiset/Algorithms)
-  + [**Top Java Blogs**](https://stackify.com/java-blogs-for-programmers-of-all-levels/)
-  + [**Experimenting with Java**](https://github.com/SyedT2)
-
-## Goodreads
-+ [Java Programming-Goodreads Search](https://www.goodreads.com/shelf/show/java-programming)
-+ [Java Books-Goodreads search](https://www.goodreads.com/shelf/show/java)
+  + **[William Fiset-Algo](https://github.com/williamfiset/Algorithms)**
