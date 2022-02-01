@@ -22,9 +22,7 @@
 
 ## Other Resources
   + [William Fiset-Github](https://github.com/williamfiset/Algorithms)
-  + [**Top Java Blogs**](https://stackify.com/java-blogs-for-programmers-of-all-levels/)
-  + [**Experimenting with Java**](https://github.com/SyedT2)
-
+ 
 ## Goodreads
 + [Java Programming-Goodreads Search](https://www.goodreads.com/shelf/show/java-programming)
 + [Java Books-Goodreads search](https://www.goodreads.com/shelf/show/java)
