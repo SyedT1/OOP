@@ -2,10 +2,10 @@
 using namespace std;
 class ComplexNo
 {
-    int real, img;
+    double real, img;
 
 public:
-    ComplexNo(int x, int y) : real{x}, img{y} {}
+    ComplexNo(double x, double y) : real{x}, img{y} {}
     void setvalues()
     {
         cout << "Enter the real part = " << endl;
@@ -13,11 +13,11 @@ public:
         cout << "Enter the imaginary part = " << endl;
         cin >> img;
     }
-    int getReal()
+    double getReal()
     {
         return real;
     }
-    int getImg()
+    double getImg()
     {
         return img;
     }
@@ -25,9 +25,17 @@ public:
     {
         return ComplexNo{real + a.real, img + a.img};
     }
-    ComplexNo operator+(int val)
+    ComplexNo operator+(double val)
     {
         return ComplexNo{real + val, img};
+    }
+    ComplexNo operator*(ComplexNo b)
+    {
+        return ComplexNo{real * b.real - (img * b.img), real * b.img + img * b.real};
+    }
+    ComplexNo operator*(double cons)
+    {
+        return ComplexNo{real * cons, img * cons};
     }
 };
 ostream &operator<<(ostream &out, ComplexNo a)
@@ -45,5 +53,5 @@ int main()
     a.setvalues();
     b.setvalues();
     cout << a << endl;
-    cout << a + b << endl;
+    cout << a * b << endl;
 }
