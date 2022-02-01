@@ -5,6 +5,7 @@ class ComplexNo
     int real, img;
 
 public:
+    ComplexNo(int x, int y) : real{x}, img{y} {}
     void setvalues()
     {
         cout << "Enter the real part = " << endl;
@@ -22,17 +23,11 @@ public:
     }
     ComplexNo operator+(ComplexNo a)
     {
-        ComplexNo temp;
-        temp.real = real + a.real;
-        temp.img = img + a.img;
-        return temp;
+        return ComplexNo{real + a.real, img + a.img};
     }
     ComplexNo operator+(int val)
     {
-        ComplexNo temp;
-        temp.real = real + val;
-        temp.img = img;
-        return temp;
+        return ComplexNo{real + val, img};
     }
 };
 ostream &operator<<(ostream &out, ComplexNo a)
@@ -40,13 +35,13 @@ ostream &operator<<(ostream &out, ComplexNo a)
     out << a.getReal();
     if (a.getImg() != 0)
     {
-        out << (a.getImg() < 0 ? '-' : '+')<<a.getImg()<<'i';
+        out << (a.getImg() < 0 ? '-' : '+') << a.getImg() << 'i';
     }
     return out;
 }
 int main()
 {
-    ComplexNo a, b;
+    ComplexNo a{0, 0}, b{0, 0};
     a.setvalues();
     b.setvalues();
     cout << a << endl;
