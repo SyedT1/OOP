@@ -14,6 +14,7 @@
 
 ## Courses
 + [Object Oriented Java Programming: Data Structures and Beyond Specialization](https://www.coursera.org/specializations/java-object-oriented)
+    + **[Object Oriented Programming in Java](https://www.coursera.org/learn/object-oriented-java/)**
 + [Object Oriented Programming in Java Specialization](https://www.coursera.org/specializations/object-oriented-programming)
 + [OOP - University Of Cambridge](https://www.cl.cam.ac.uk/teaching/1920/OOProg/materials.html)
 + [Udemy - Intro to Java](https://www.udemy.com/course/java-programming-basics/)
