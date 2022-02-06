@@ -1,16 +1,17 @@
 #include <iostream>
+#include <limits>
 using namespace std;
-void call(string s)
-{
-    cout << "String is called" << endl;
-}
-void call(const char *s)
-{
-    cout << "Const called" << endl;
-}
 int main()
 {
-    string s = "melo";
-    call(s);
-    call("hello");
+    int n;
+    cin >> n;
+    cin.ignore();
+    string s;
+    getline(cin, s);
+    cin.ignore();
+    string l;
+    getline(cin, l);
+    int o;
+    cin >> o;
+    cout << n << ' ' << s << ' ' << l << ' ' << o << endl;
 }
