@@ -6,3 +6,5 @@
 ![Problem 3](https://github.com/SyedT1/OOP/blob/main/Varsity%20Lectures/Practice%20Problems/imgsrc/3.png)
 ## Practice Question 4:
 ![Problem 4](https://github.com/SyedT1/OOP/blob/main/Varsity%20Lectures/Practice%20Problems/imgsrc/4.png)
+## Practice Questio 5:
+![Problem 5](https://github.com/SyedT1/OOP/blob/main/Varsity%20Lectures/Practice%20Problems/imgsrc/5.png)
