@@ -4,3 +4,5 @@
 ![Problem 2](https://github.com/SyedT1/OOP/blob/main/Varsity%20Lectures/Practice%20Problems/imgsrc/02.png)
 ## Practice Question 3:
 ![Problem 3](https://github.com/SyedT1/OOP/blob/main/Varsity%20Lectures/Practice%20Problems/imgsrc/3.png)
+## Practice Question 4:
+![Problem 4](https://github.com/SyedT1/OOP/blob/main/Varsity%20Lectures/Practice%20Problems/imgsrc/4.png)
