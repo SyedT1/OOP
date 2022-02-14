@@ -1,2 +1,5 @@
 # Practice Problem 1
 ![PPr1](https://github.com/SyedT1/OOP/blob/main/Varsity%20Lectures/Practice%20Problems%202/imgsrc/1.png)
+
+# Practice Problem 2
+![PPr2](https://github.com/SyedT1/OOP/blob/main/Varsity%20Lectures/Practice%20Problems%202/imgsrc/2.png)
