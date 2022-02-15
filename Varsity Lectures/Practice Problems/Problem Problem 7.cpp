@@ -94,6 +94,10 @@ public:
             cin >> noOfColsForEachRow[i];
         }
     }
+    MatrixOfComplexNo operator[](int x)
+    {
+       return noOfColsForEachRow[x];
+    }
 };
 void showComplexMatrices(MatrixOfComplexNo *x, int numofMat)
 {
@@ -103,7 +107,7 @@ void showComplexMatrices(MatrixOfComplexNo *x, int numofMat)
              << x[i] << endl;
     }
 }
-
+ComplexNo *
 int main()
 {
     int n, row, i;
@@ -122,5 +126,5 @@ int main()
     cout << "Enter indices of two rows of the first matrix to merge = ";
     int rowindex1, rowindex2;
     cin >> rowindex1 >> rowindex2;
-    // mergedRow = matrixPtr[0].complexRowPtr[rowindex1].mergeWith(rowindex2);
+    mergedRow = matrixPtr[0][rowindex1];//mergeWith(rowindex2);
 }
