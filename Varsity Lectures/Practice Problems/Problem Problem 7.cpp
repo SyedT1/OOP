@@ -3,6 +3,14 @@ using namespace std;
 class ComplexNo
 {
     int real, img;
+    friend istream &operator>>(istream &in, ComplexNo &a)
+    {
+        cout << "Enter the real part = ";
+        in >> a.real;
+        cout << "Enter the img part = ";
+        in >> a.img;
+        return in;
+    }
     friend ostream &operator<<(ostream &out, ComplexNo &a)
     {
         out << a.real << (a.img < 0 ? '-' : '+') << a.img << "i";
@@ -29,46 +37,22 @@ public:
         return img;
     }
 };
-istream &operator>>(istream &in, ComplexNo &a)
-{
-    a.set_real(in);
-    a.set_img(in);
-    return in;
-}
 class MatrixOfComplexNo
 {
     int noOfRows;
     int *noOfColsForEachRow;
-    ComplexNo *complexRowPtr[];
-    friend istream &operator>>(istream &in, MatrixOfComplexNo &MatA)
-    {
-        cout << "Enter the Number of Rows for the complex matrix = ";
-        in >> MatA.noOfRows;
-        MatA.noOfColsForEachRow = new int[MatA.noOfRows];
-        for (int i = 0; i < MatA.noOfRows; i++)
-        {
-            cout << "Enter the Number of Column for Row " << i + 1 << " of the matrix = ";
-            in >> MatA.noOfColsForEachRow[i];
-        }
-        cout << "Populate the Matrix = " << endl;
-        for (int i = 0; i < MatA.noOfRows; i++)
-        {
-            MatA.complexRowPtr[i] = new ComplexNo[MatA.noOfColsForEachRow[i]];
-            for (int j = 0; j < MatA.noOfColsForEachRow[i]; j++)
-            {
-                cout << "Enter for ComplexMat[" << i << "]"
-                     << "[" << j << "] = " << endl;
-                in >> MatA.complexRowPtr[i][j];
-            }
-        }
-    }
+    ComplexNo **complexRowPtr; // this will point to the pointer of ComplexNo* or arrays of ComplexNo
+    // ComplexNo **complexRowPtr
+    // 2 row 2 col
+    // 2+3i 2+4i
+    // 5+2i 6-4i
     friend ostream &operator<<(ostream &out, MatrixOfComplexNo &a)
     {
         for (int i = 0; i < a.noOfRows; i++)
         {
             for (int j = 0; j < a.noOfColsForEachRow[i]; j++)
             {
-                out << a.complexRowPtr[i][j] << ' ';
+                out << a.complexRowPtr[i][j] << " ";
             }
             out << endl;
         }
@@ -94,20 +78,32 @@ public:
             cin >> noOfColsForEachRow[i];
         }
     }
-    MatrixOfComplexNo operator[](int x)
+    void setMatrix()
     {
-       return noOfColsForEachRow[x];
+        cout << "Enter the # of rows = ";
+        cin >> noOfRows;
+        noOfColsForEachRow = new int[noOfRows];
+        for (int i = 0; i < noOfRows; i++)
+        {
+            cout << "Enter the # of cols for " + to_string(i) + " th row=" << endl;
+            cin >> noOfColsForEachRow[i];
+        }
+        complexRowPtr = new ComplexNo *[noOfRows];
+        for (int i = 0; i < noOfRows; i++)
+        {
+            complexRowPtr[i] = new ComplexNo[noOfColsForEachRow[i]];
+            for (int j = 0; j < noOfColsForEachRow[i]; j++)
+            {
+                cout << "Enter ComplexNo[" + to_string(i) + "]" + "[" + to_string(j) + "] = ";
+                cin >> complexRowPtr[i][j];
+            }
+        }
     }
 };
 void showComplexMatrices(MatrixOfComplexNo *x, int numofMat)
 {
-    for (int i = 0; i < numofMat; i++)
-    {
-        cout << "Matrix " << i + 1 << " is equivalent to = " << endl
-             << x[i] << endl;
-    }
 }
-ComplexNo *
+
 int main()
 {
     int n, row, i;
@@ -115,16 +111,12 @@ int main()
     cout << "How many matrices of complex nos? ";
     cin >> n;
     matrixPtr = new MatrixOfComplexNo[n];
-    for (i = 0; i < n; i++)
+    for (int i = 0; i < n; i++)
     {
-        cout << "Enter for Matrix " << i + 1 << " = " << endl;
-        cin >> matrixPtr[i];
+        matrixPtr[i].setMatrix();
     }
-    cout << "The matrices of complex numbers  is/are = " << endl;
-    showComplexMatrices(matrixPtr, n);
-    ComplexNo *mergedRow;
-    cout << "Enter indices of two rows of the first matrix to merge = ";
-    int rowindex1, rowindex2;
-    cin >> rowindex1 >> rowindex2;
-    mergedRow = matrixPtr[0][rowindex1];//mergeWith(rowindex2);
+    for (int i = 0; i < n; i++)
+    {
+        cout << matrixPtr[i] << endl;
+    }
 }
