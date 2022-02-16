@@ -21,8 +21,15 @@ public class MainClass {
         int rows = c.nextInt();
         System.out.println("Enter the # of cols = ");
         int cols = c.nextInt();
-        m1 = new Matrix(rows,cols);
+        m1 = new Matrix(rows, cols);
         System.out.println("First Matrix:");
         m1.showMatrix();
+        m2 = new Matrix(rows, cols, 2, 10);
+        System.out.println("Second Matrix:");
+        m2.showMatrix();
+        m3 = new Matrix();
+        m3 = m1.merge(m2);
+        System.out.println("Merged Matrix:");
+        m3.showMatrix();
     }
 }

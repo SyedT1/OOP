@@ -15,30 +15,64 @@ public class OneDArray {
 
     private int[] values;
     private float average;
+    OneDArray() { }
 
-    OneDArray() {
-        // values = new int[4];  
-        this.getArray();
+    OneDArray(int size,int up_lm) {
+        Random r = new Random();
+      //  Scanner c = new Scanner(System.in);
+        values = new int[size];
+        average = 0.0f;
+        //System.out.println("Enter values:");
+        for (int i = 0; i < values.length; i++) {
+            values[i] = r.nextInt(up_lm);
+            average += values[i];
+        }
+        average /= values.length;
     }
-
+    public int[] Arr(){
+        return values;
+    }
     public void getArray() {
         Scanner c = new Scanner(System.in);
         System.out.println("How many Numbers ? ");
         values = new int[c.nextInt()];
+        average = 0.0f;
         System.out.println("Enter values:");
         for (int i = 0; i < values.length; i++) {
             values[i] = c.nextInt();
+            average += values[i];
         }
+        average /= values.length;
     }
-
+    public void setArray(int A[],int B[]){
+        this.values = new int[A.length+B.length];
+        int k = 0;
+        average = 0.0f;
+        for(int i = 0;i<values.length;i++){
+            if(i<A.length){
+                this.values[i] = A[i];
+            }else{
+                this.values[i] = B[k++];
+            }
+            average += this.values[i];
+        }
+        average /= values.length;
+    }
     int getlen() {
         return values.length;
     }
 
     void showArray() {
-        for (int i : values) {
-            System.out.printf("%d ", i);
+        float avg = 0.0f;
+        System.out.printf("{");
+        for (int i = 0; i < values.length; i++) {
+            avg += values[i];
+            System.out.printf("%d", values[i]);
+            if (i < values.length - 1) {
+                System.out.printf(",");
+            }
+
         }
-        System.out.println();
+        System.out.printf("} Avg:" + average + "\t");
     }
 }
