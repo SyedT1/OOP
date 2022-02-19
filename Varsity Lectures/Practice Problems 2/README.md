@@ -3,3 +3,6 @@
 
 # Practice Problem 2
 ![PPr2](https://github.com/SyedT1/OOP/blob/main/Varsity%20Lectures/Practice%20Problems%202/imgsrc/2.png)
+
+# Practice Problem 3
+![PPr3](https://github.com/SyedT1/OOP/blob/main/Varsity%20Lectures/Practice%20Problems%202/imgsrc/3.png)
