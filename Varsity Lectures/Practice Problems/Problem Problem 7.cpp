@@ -41,7 +41,7 @@ class MatrixOfComplexNo
 {
     int noOfRows;
     int *noOfColsForEachRow;
-    ComplexNo *complexRowPtr[]; // this will point to the pointer of ComplexNo* or arrays of ComplexNo
+    ComplexNo **complexRowPtr; // this will point to the pointer of ComplexNo* or arrays of ComplexNo
     // ComplexNo **complexRowPtr
     // 2 row 2 col
     // 2+3i 2+4i
@@ -57,10 +57,6 @@ class MatrixOfComplexNo
             out << endl;
         }
         return out;
-    }
-    ComplexNo *MatrixOfComplexNo::operator[](ComplexNo *a)
-    {
-        return a;
     }
 
 public:
@@ -95,14 +91,9 @@ public:
         }
     }
 };
-Complex *mergedWith()
-{
-    Complex *r = new Complex;
-    return r;
-}
 int main()
 {
-    int n, row, i;
+    int n, row;
     MatrixOfComplexNo *matrixPtr;
     cout << "How many matrices of complex nos? ";
     cin >> n;
