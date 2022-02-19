@@ -10,5 +10,8 @@
 ![Problem 5](https://github.com/SyedT1/OOP/blob/main/Varsity%20Lectures/Practice%20Problems/imgsrc/5.png)
 ## Practice Question 6:
 ![Problem 6](https://github.com/SyedT1/OOP/blob/main/Varsity%20Lectures/Practice%20Problems/imgsrc/6.png)
-## Practice Question 7:
+## Practice Question 7(Small Mistake:Look Below for Edit):
 ![Problem 7](https://github.com/SyedT1/OOP/blob/main/Varsity%20Lectures/Practice%20Problems/imgsrc/7.png)
+
+## Small mistake and Edit
++ _Consider ComplexNo *complexPtrArr[] to be accessed via _ComplexNo **complxarr _
