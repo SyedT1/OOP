@@ -5,6 +5,8 @@
  */
 package mypkg;
 
+import java.util.*;
+
 /**
  *
  * @author thinker
@@ -15,17 +17,10 @@ class Student {
     String name, dept, major;
     float cgpa;
 
-    Student() {
+    public Student() {
         id = 0;
         name = dept = major = "TBA";
         cgpa = 0.0f;
-    }
-
-    Student(int id, String name, String dept, String major) {
-        this.id = id;
-        this.name = name;
-        this.dept = dept;
-        this.major = major;
     }
 
     public int getId() {
@@ -38,6 +33,20 @@ class Student {
 
     public String getName() {
         return name;
+    }
+
+    public Student setInfo(int x) {
+        Scanner c = new Scanner(System.in);
+        this.id = x;
+        System.out.println("Enter the name = ");
+        this.name = c.nextLine();
+        System.out.println("Enter the name of the department = ");
+        this.dept = c.nextLine();
+        System.out.println("Enter Major = ");
+        this.major = c.nextLine();
+        System.out.println("Enter CGPA = ");
+        this.cgpa = c.nextFloat();
+        return this;
     }
 
     public void setName(String name) {
@@ -67,5 +76,5 @@ class Student {
     public void setCgpa(float cgpa) {
         this.cgpa = cgpa;
     }
-    
+
 }
