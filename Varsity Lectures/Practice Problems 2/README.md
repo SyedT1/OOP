@@ -6,3 +6,9 @@
 
 # Practice Problem 3
 ![PPr3](https://github.com/SyedT1/OOP/blob/main/Varsity%20Lectures/Practice%20Problems%202/imgsrc/3.png)
+
+# Practice Problem 5
+![PPr5](https://github.com/SyedT1/OOP/blob/main/Varsity%20Lectures/Practice%20Problems%202/imgsrc/5.png)
+
+# Practice Problem 6
+![PPr6](https://github.com/SyedT1/OOP/blob/main/Varsity%20Lectures/Practice%20Problems%202/imgsrc/6.png)
