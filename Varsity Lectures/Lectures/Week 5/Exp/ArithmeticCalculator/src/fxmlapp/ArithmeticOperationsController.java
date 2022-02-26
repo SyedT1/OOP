@@ -51,6 +51,10 @@ public class ArithmeticOperationsController implements Initializable {
 
     @FXML
     private void addOnClick(ActionEvent event) {
+        if (xTxtField.getText().trim().isEmpty() || yTxtField.getText().trim().isEmpty()) {
+            ResultLab.setText("One or Both of the TextFields is/are empty");
+            return;
+        }
         double x = Double.parseDouble(xTxtField.getText());
         double y = Double.parseDouble(yTxtField.getText());
         String res = "%." + Integer.toString(limit) + "f";
@@ -59,6 +63,10 @@ public class ArithmeticOperationsController implements Initializable {
 
     @FXML
     private void multiplyOnClick(ActionEvent event) {
+        if (xTxtField.getText().trim().isEmpty() || yTxtField.getText().trim().isEmpty()) {
+            ResultLab.setText("One or Both of the TextFields is/are empty");
+            return;
+        }
         double x = Double.parseDouble(xTxtField.getText());
         double y = Double.parseDouble(yTxtField.getText());
         String res = "%." + Integer.toString(limit) + "f";
@@ -67,6 +75,10 @@ public class ArithmeticOperationsController implements Initializable {
 
     @FXML
     private void divideOnClick(ActionEvent event) {
+        if (xTxtField.getText().trim().isEmpty() || yTxtField.getText().trim().isEmpty()) {
+            ResultLab.setText("One or Both of the TextFields is/are empty");
+            return;
+        }
         double x = Double.parseDouble(xTxtField.getText());
         double y = Double.parseDouble(yTxtField.getText());
         if (y == 0) {
