@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxmlapp.ArithmeticOperationsController">
+   <children>
+      <Label layoutX="37.0" layoutY="55.0" prefHeight="35.0" prefWidth="69.0" text="   Enter X:" textFill="#eb1010" />
+      <TextField id="XtxtField" layoutX="106.0" layoutY="60.0" promptText="Enter an integer value" fx:id="xTxtField" />
+      <TextField id="YTxtField" fx:id="yTxtField" layoutX="106.0" layoutY="115.0" promptText="Enter an integer value" />
+      <Label layoutX="37.0" layoutY="109.0" prefHeight="35.0" prefWidth="69.0" text="   Enter Y:" textFill="#539a3b" />
+      <Button id="AddonClick" layoutX="41.0" layoutY="188.0" mnemonicParsing="false" onAction="#addOnClick" text="Add" />
+      <Button id="MultiplyOnClick" layoutX="192.0" layoutY="188.0" mnemonicParsing="false" onAction="#multiplyOnClick" text="Multiply" />
+      <Button id="DivideOnClick" layoutX="369.0" layoutY="188.0" mnemonicParsing="false" onAction="#divideOnClick" text="Divide" />
+      <Label layoutX="29.0" layoutY="255.0" prefHeight="35.0" prefWidth="69.0" text="   Result:" textFill="#eb1010" />
+      <Label fx:id="ResultLab" layoutX="106.0" layoutY="255.0" prefHeight="35.0" prefWidth="425.0" textFill="#2c2929" />
+      <Label text="Label" />
+      <ChoiceBox fx:id="myChoiceBox" layoutX="429.0" layoutY="103.0" prefWidth="150.0" />
+   </children>
+</AnchorPane>
