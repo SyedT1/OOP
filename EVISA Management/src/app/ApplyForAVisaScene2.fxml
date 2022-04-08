@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane id="AnchorPane" prefHeight="602.0" prefWidth="775.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17" fx:controller="app.ApplyForAVisaScene2Controller">
+<AnchorPane id="AnchorPane" prefHeight="631.0" prefWidth="830.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17" fx:controller="app.ApplyForAVisaScene2Controller">
    <children>
       <Button layoutX="31.0" layoutY="520.0" mnemonicParsing="false" onAction="#backbuttonOnClick" prefHeight="49.0" prefWidth="104.0" text="Back" />
       <Button layoutX="572.0" layoutY="520.0" mnemonicParsing="false" onAction="#saveandproceedbuttonOnClick" prefHeight="49.0" prefWidth="162.0" text="Save and Proceed" />
@@ -83,7 +83,7 @@
             <Font size="14.0" />
          </font>
       </TextField>
-      <TextField layoutX="291.0" layoutY="205.0" prefHeight="24.0" prefWidth="143.0" promptText="   Enter Street" />
+      <TextField layoutX="225.0" layoutY="205.0" prefHeight="24.0" prefWidth="143.0" promptText="   Enter Street" />
       <Label layoutX="14.0" layoutY="410.0" prefHeight="33.0" prefWidth="184.0" text="                   Occupation:">
          <font>
             <Font size="15.0" />
@@ -101,19 +101,19 @@
       </Label>
       <ComboBox layoutX="212.0" layoutY="415.0" prefHeight="24.0" prefWidth="184.0" promptText="    ---SELECT---" />
       <ComboBox layoutX="211.0" layoutY="452.0" prefHeight="24.0" prefWidth="184.0" promptText="    ---SELECT---" />
-      <TextField layoutX="582.0" layoutY="205.0" prefHeight="24.0" prefWidth="143.0" promptText="       Enter City" />
-      <TextField layoutX="582.0" layoutY="238.0" prefHeight="24.0" prefWidth="143.0" promptText="  Enter Country" />
-      <Label layoutX="132.0" layoutY="201.0" prefHeight="33.0" prefWidth="184.0" text="                   Street:">
+      <TextField layoutX="447.0" layoutY="205.0" prefHeight="24.0" prefWidth="143.0" promptText="       Enter City" />
+      <TextField layoutX="682.0" layoutY="206.0" prefHeight="24.0" prefWidth="143.0" promptText="  Enter Country" />
+      <Label layoutX="69.0" layoutY="201.0" prefHeight="33.0" prefWidth="184.0" text="                   Street:">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <Label layoutX="421.0" layoutY="201.0" prefHeight="33.0" prefWidth="184.0" text="                      City:">
+      <Label layoutX="294.0" layoutY="201.0" prefHeight="33.0" prefWidth="184.0" text="                      City:">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <Label layoutX="425.0" layoutY="234.0" prefHeight="33.0" prefWidth="184.0" text="               Country:">
+      <Label layoutX="536.0" layoutY="201.0" prefHeight="33.0" prefWidth="184.0" text="               Country:">
          <font>
             <Font size="15.0" />
          </font>
