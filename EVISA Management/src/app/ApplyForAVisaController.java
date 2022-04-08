@@ -14,6 +14,7 @@ import java.util.ResourceBundle;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Pattern;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -47,6 +48,16 @@ public class ApplyForAVisaController implements Initializable {
     private Label errorLabel;
     @FXML
     private ImageView imgview1;
+    private boolean captchapassed = false;
+
+    private boolean isvalidemail(String email) {
+        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\." + "[a-zA-Z0-9_+&*-]+)*@" + "(?:[a-zA-Z0-9-]+\\.)+[a-z" + "A-Z]{2,7}$";
+        Pattern pat = Pattern.compile(emailRegex);
+        if (email == null) {
+            return false;
+        }
+        return pat.matcher(email).matches();
+    }
 
     /**
      * Initializes the controller class.
@@ -86,21 +97,36 @@ public class ApplyForAVisaController implements Initializable {
 
     @FXML
     private void refreshbuttonOnClick(ActionEvent event) {
+        captchapassed = false;
         initimg();
     }
 
     @FXML
     private void submitToProceedOnClick(ActionEvent event) {
+        errorLabel.setText("");
         String sf = captchaverifytextfield.getText() + ".png";
-        if (!sf.equals(selectedpic)) {
+        captchapassed = sf.equals(selectedpic);
+        if (captchaverifytextfield.getText().equals("") && captchapassed==false) {
+            errorLabel.setText("* Fill up the CAPTCHA to continue .");
+            return;
+        }
+        if (sf.length()!=0 && captchapassed==false) {
             Alert a = new Alert(AlertType.ERROR);
-            if (captchaverifytextfield.getText().equals("")) {
-                errorLabel.setText("* Fill up the CAPTCHA to continue .");
-                return;
-            }
             a.setContentText("Wrong Input for CAPTCHA. Try Again");
             a.showAndWait();
-            captchaverifytextfield.clear();
+            return;
+            //captchaverifytextfield.clear();
+        }
+        if (enteryouremailtextfield.equals("") || captchapassed == false) {
+            Alert a = new Alert(AlertType.ERROR);
+            a.setContentText("Incomplete Information. Fill up the required fields.");
+            a.showAndWait();
+            return;
+        }
+        if (!isvalidemail(enteryouremailtextfield.getText())) {
+            Alert a = new Alert(AlertType.ERROR);
+            a.setContentText("Email is Invalid");
+            a.showAndWait();
         }
     }
 
@@ -108,8 +134,9 @@ public class ApplyForAVisaController implements Initializable {
     private void checkbuttonOnClick(ActionEvent event) {
         String sf = captchaverifytextfield.getText() + ".png";
         Image image = new Image(getClass().getResourceAsStream(sf.equals(selectedpic) ? "Verified.png" : "Not_Verified.png"));
+        captchapassed = sf.equals(selectedpic);
         imgview.setImage(image);
-        captchaverifytextfield.clear();
+        //captchaverifytextfield.clear();
     }
 
     @FXML
