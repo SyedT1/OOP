@@ -44,7 +44,7 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void clickherebuttonOnClick(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("ApplyforaVisa.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("ApplyForAVisa.fxml"));
 
         Scene scene = new Scene(root);
 
