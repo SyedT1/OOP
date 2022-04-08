@@ -102,15 +102,15 @@ public class ApplyForAVisaController implements Initializable {
     }
 
     @FXML
-    private void submitToProceedOnClick(ActionEvent event) {
+    private void submitToProceedOnClick(ActionEvent event) throws IOException {
         errorLabel.setText("");
         String sf = captchaverifytextfield.getText() + ".png";
         captchapassed = sf.equals(selectedpic);
-        if (captchaverifytextfield.getText().equals("") && captchapassed==false) {
+        if (captchaverifytextfield.getText().equals("") && captchapassed == false) {
             errorLabel.setText("* Fill up the CAPTCHA to continue .");
             return;
         }
-        if (sf.length()!=0 && captchapassed==false) {
+        if (sf.length() != 0 && captchapassed == false) {
             Alert a = new Alert(AlertType.ERROR);
             a.setContentText("Wrong Input for CAPTCHA. Try Again");
             a.showAndWait();
@@ -128,6 +128,11 @@ public class ApplyForAVisaController implements Initializable {
             a.setContentText("Email is Invalid");
             a.showAndWait();
         }
+        Parent root = FXMLLoader.load(getClass().getResource("ApplyForAVisaScene2.fxml"));
+        Scene scene = new Scene(root);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene(scene);
+        window.show();
     }
 
     @FXML
