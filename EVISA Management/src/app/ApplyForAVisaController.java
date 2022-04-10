@@ -36,7 +36,7 @@ import javafx.stage.Stage;
  * @author thinker
  */
 public class ApplyForAVisaController implements Initializable {
-
+    
     @FXML
     private TextField enteryouremailtextfield;
     @FXML
@@ -49,7 +49,7 @@ public class ApplyForAVisaController implements Initializable {
     @FXML
     private ImageView imgview1;
     private boolean captchapassed = false;
-
+    
     private boolean isvalidemail(String email) {
         String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\." + "[a-zA-Z0-9_+&*-]+)*@" + "(?:[a-zA-Z0-9-]+\\.)+[a-z" + "A-Z]{2,7}$";
         Pattern pat = Pattern.compile(emailRegex);
@@ -70,7 +70,7 @@ public class ApplyForAVisaController implements Initializable {
         String str;
         ArrayList<String> tr = new ArrayList<String>();
         try {
-            f = new File("captchapics.txt");
+            f = new File("src/captchapics.txt");
             sc = new Scanner(f);
             if (f.exists()) {
                 while (sc.hasNextLine()) {
@@ -94,18 +94,24 @@ public class ApplyForAVisaController implements Initializable {
         // TODO
         initimg();
     }
-
+    
     @FXML
     private void refreshbuttonOnClick(ActionEvent event) {
         captchapassed = false;
         initimg();
     }
-
+    
     @FXML
     private void submitToProceedOnClick(ActionEvent event) throws IOException {
         errorLabel.setText("");
         String sf = captchaverifytextfield.getText() + ".png";
         captchapassed = sf.equals(selectedpic);
+        if (enteryouremailtextfield.equals("") && captchaverifytextfield.getText().equals("")) {
+            Alert a = new Alert(AlertType.ERROR);
+            a.setContentText("Incomplete Information. Fill up the required fields.");
+            a.showAndWait();
+            return;
+        }
         if (captchaverifytextfield.getText().equals("") && captchapassed == false) {
             errorLabel.setText("* Fill up the CAPTCHA to continue .");
             return;
@@ -117,24 +123,25 @@ public class ApplyForAVisaController implements Initializable {
             return;
             //captchaverifytextfield.clear();
         }
-        if (enteryouremailtextfield.equals("") || captchapassed == false) {
+        if (!isvalidemail(enteryouremailtextfield.getText())) {
             Alert a = new Alert(AlertType.ERROR);
-            a.setContentText("Incomplete Information. Fill up the required fields.");
+            a.setContentText(enteryouremailtextfield.getText().length() == 0 ? "Empty Email Textfield.Fill it up" : "Invalid Email");
             a.showAndWait();
             return;
         }
-        if (!isvalidemail(enteryouremailtextfield.getText())) {
-            Alert a = new Alert(AlertType.ERROR);
-            a.setContentText("Email is Invalid");
-            a.showAndWait();
-        }
-        Parent root = FXMLLoader.load(getClass().getResource("ApplyForAVisaScene2.fxml"));
-        Scene scene = new Scene(root);
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("ApplyForAVisaScene2.fxml"));
+        Parent personViewParent = loader.load();
+        Scene personViewScene = new Scene(personViewParent);
+        //access the controller
+        //Email Data passing to scene 2 and loading scene 2
+        ApplyForAVisaScene2Controller controller = loader.getController();
+        controller.init_email(enteryouremailtextfield.getText());
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        window.setScene(scene);
+        window.setScene(personViewScene);
         window.show();
     }
-
+    
     @FXML
     private void checkbuttonOnClick(ActionEvent event) {
         String sf = captchaverifytextfield.getText() + ".png";
@@ -143,7 +150,7 @@ public class ApplyForAVisaController implements Initializable {
         imgview.setImage(image);
         //captchaverifytextfield.clear();
     }
-
+    
     @FXML
     private void backbuttonOnClick(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
@@ -152,5 +159,5 @@ public class ApplyForAVisaController implements Initializable {
         window.setScene(scene);
         window.show();
     }
-
+    
 }

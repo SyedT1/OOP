@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="512.0" prefWidth="876.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17" fx:controller="app.ApplyForAVisaScene4Controller">
+   <children>
+      <Label layoutX="232.0" layoutY="34.0" prefHeight="33.0" prefWidth="443.0" text="  PART -  3:   Travel Document">
+         <font>
+            <Font name="System Bold" size="23.0" />
+         </font>
+      </Label>
+      <Label layoutX="34.0" layoutY="115.0" prefHeight="33.0" prefWidth="171.0" text="           Passport No:">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="58.0" layoutY="202.0" prefHeight="33.0" prefWidth="171.0" text="    Place of issue:">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="34.0" layoutY="158.0" prefHeight="33.0" prefWidth="171.0" text="        Passport Type:">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="42.0" layoutY="250.0" prefHeight="33.0" prefWidth="171.0" text="        Date of issue:">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="35.0" layoutY="296.0" prefHeight="33.0" prefWidth="171.0" text="        Date of expiry:">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="40.0" layoutY="340.0" prefHeight="33.0" prefWidth="171.0" text="          Type of Visa:">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="typeOfVisaComboBox" layoutX="199.0" layoutY="345.0" onAction="#typeOfVisaComboBoxOnClick" prefHeight="24.0" prefWidth="213.0" promptText="            ---SELECT---" />
+      <DatePicker fx:id="dateOfExpiry" layoutX="197.0" layoutY="301.0" onAction="#dateOfExpiryOnClick" prefHeight="24.0" prefWidth="213.0" promptText="Enter Date of Expiry" />
+      <DatePicker fx:id="dateOfIssue" layoutX="197.0" layoutY="255.0" onAction="#dateOfIssueonClick" prefHeight="24.0" prefWidth="213.0" promptText="Enter Date of Issue" />
+      <TextField fx:id="passportNoTextfield" layoutX="197.0" layoutY="120.0" prefHeight="24.0" prefWidth="213.0" promptText="Enter your passport No" />
+      <TextField fx:id="placeOfissuetxtfield" layoutX="197.0" layoutY="207.0" prefHeight="24.0" prefWidth="213.0" promptText="Enter the POI of passport" />
+      <ComboBox fx:id="passportTypeComboBox" layoutX="197.0" layoutY="163.0" onAction="#passportTypeComboBoxOnClick" prefHeight="24.0" prefWidth="213.0" promptText="             ---SELECT---" />
+      <Button layoutX="34.0" layoutY="431.0" mnemonicParsing="false" onAction="#backbuttonOnClick" prefHeight="49.0" prefWidth="104.0" text="Back" />
+      <Button layoutX="669.0" layoutY="431.0" mnemonicParsing="false" onAction="#saveandproceedbuttonOnClick" prefHeight="49.0" prefWidth="162.0" text="Save and Proceed" />
+   </children>
+</AnchorPane>
