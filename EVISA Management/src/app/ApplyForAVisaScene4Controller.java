@@ -87,11 +87,16 @@ public class ApplyForAVisaScene4Controller implements Initializable {
 
     @FXML
     private void saveandproceedbuttonOnClick(ActionEvent event) throws IOException {
-        p = new Passport(passportNoTextfield.getText(), placeOfissuetxtfield.getText(), DOI, DOE,passportType);
-        Parent root = FXMLLoader.load(getClass().getResource("ApplyForAVisaScene5.fxml"));
-        Scene scene = new Scene(root);
+        p = new Passport(passportNoTextfield.getText(), placeOfissuetxtfield.getText(), DOI, DOE, passportType);
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("ApplyForAVisaScene5.fxml"));
+        Parent personViewParent = loader.load();
+        Scene personViewScene = new Scene(personViewParent);
+        //access the controller
+        ApplyForAVisaScene5Controller controller = loader.getController();
+        controller.initData(email, sex, firstName, lastName, maritalStatus, currentLocation, birthCountry, occupation, presentNationality, DateofBirth, permanentAddress, typeofVisaEnrollment, p, typeOfVisa);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        window.setScene(scene);
+        window.setScene(personViewScene);
         window.show();
     }
 

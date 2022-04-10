@@ -7,24 +7,23 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="555.0" prefWidth="741.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17" fx:controller="app.ApplyForAVisaScene6Controller">
+<AnchorPane id="AnchorPane" prefHeight="555.0" prefWidth="741.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.ApplyForAVisaScene6Controller">
    <children>
       <Label layoutX="103.0" layoutY="68.0" prefHeight="33.0" prefWidth="468.0" text="  PART -  6:   Document Check List">
          <font>
             <Font name="System Bold" size="23.0" />
          </font>
       </Label>
-      <CheckBox fx:id="RecommendationfromConcernMinistryAuthorityCheckBox" layoutX="14.0" layoutY="152.0" mnemonicParsing="false" onAction="#RecommendationfromConcernMinistryAuthorityCheckBoxOnClick" prefHeight="27.0" prefWidth="362.0" text="Recommendation from Concern Ministry Authority" />
-      <CheckBox layoutX="14.0" layoutY="290.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="153.0" text="Passport Copy" />
-      <CheckBox layoutX="309.0" layoutY="214.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="292.0" text="Father's/Husband's/Mother's visa copy" />
-      <CheckBox layoutX="167.0" layoutY="214.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="153.0" text="Payment Slip" />
-      <CheckBox layoutX="14.0" layoutY="214.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="153.0" text="Security Clearance" />
-      <CheckBox fx:id="TradeLicenseoftheSponsoringCompany" layoutX="384.0" layoutY="149.0" mnemonicParsing="false" onAction="#TradeLicenseoftheSponsoringCompanyOnClick" prefHeight="33.0" prefWidth="321.0" text="Trade License of the Sponsoring Company" />
+      <CheckBox layoutX="14.0" layoutY="152.0" mnemonicParsing="false" onAction="#RecommendationfromConcernMinistryAuthorityCheckBoxOnClick" prefHeight="27.0" prefWidth="362.0" text="Recommendation from Concern Ministry Authority" />
+      <CheckBox layoutX="14.0" layoutY="290.0" mnemonicParsing="false" onAction="#passportcopyOnClick" prefHeight="33.0" prefWidth="153.0" text="Passport Copy" />
+      <CheckBox layoutX="309.0" layoutY="214.0" mnemonicParsing="false" onAction="#FatherORMotherORHusbandsVisaCopyOnClick" prefHeight="33.0" prefWidth="292.0" text="Father's/Husband's/Mother's visa copy" />
+      <CheckBox layoutX="167.0" layoutY="214.0" mnemonicParsing="false" onAction="#PaymentSlipOnClick" prefHeight="33.0" prefWidth="153.0" text="Payment Slip" />
+      <CheckBox layoutX="14.0" layoutY="214.0" mnemonicParsing="false" onAction="#SecurityClearanceOnClick" prefHeight="33.0" prefWidth="153.0" text="Security Clearance" />
+      <CheckBox layoutX="384.0" layoutY="149.0" mnemonicParsing="false" onAction="#TradeLicenseoftheSponsoringCompanyOnClick" prefHeight="33.0" prefWidth="321.0" text="Trade License of the Sponsoring Company" />
       <CheckBox layoutX="391.0" layoutY="360.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="153.0" text="Work Permit" />
-      <CheckBox layoutX="14.0" layoutY="360.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="153.0" text="Birth Certificate" />
-      <CheckBox layoutX="172.0" layoutY="290.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="174.0" text="Marriage Certificate" />
-      <CheckBox layoutX="172.0" layoutY="360.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="187.0" text="Over stay Payment Slip" />
+      <CheckBox layoutX="14.0" layoutY="360.0" mnemonicParsing="false" onAction="#birthCertificateOnClick" prefHeight="33.0" prefWidth="153.0" text="Birth Certificate" />
+      <CheckBox layoutX="172.0" layoutY="290.0" mnemonicParsing="false" onAction="#marriageCertificateOnClick" prefHeight="33.0" prefWidth="174.0" text="Marriage Certificate" />
+      <CheckBox layoutX="172.0" layoutY="360.0" mnemonicParsing="false" onAction="#OverStayPaymentOnClick" prefHeight="33.0" prefWidth="187.0" text="Over stay Payment Slip" />
       <TextField layoutX="442.0" layoutY="421.0" prefHeight="27.0" prefWidth="167.0" promptText="Enter other documents" />
       <Label layoutX="301.0" layoutY="421.0" prefHeight="27.0" prefWidth="131.0" text="  Other Documents:" />
       <Button layoutX="26.0" layoutY="474.0" mnemonicParsing="false" onAction="#backbuttonOnClick" prefHeight="49.0" prefWidth="104.0" text="Back" />

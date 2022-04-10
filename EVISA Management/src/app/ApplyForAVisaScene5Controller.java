@@ -41,8 +41,10 @@ public class ApplyForAVisaScene5Controller implements Initializable {
     private Address permanentAddress;
     private String typeofVisaEnrollment, typeOfVisa;
     private Passport p;
+    // New Added for Scene 5
     private Date tentativedateofarrivalval;
     private String durationofproposedstayval1, durationofproposedstayval2, bdvisaofficelocation;
+    //End
     @FXML
     private DatePicker tentativedateofarrival;
     @FXML
@@ -53,7 +55,7 @@ public class ApplyForAVisaScene5Controller implements Initializable {
     /**
      * Initializes the controller class.
      */
-    public void initData(String email, String sex, String firstName, String lastName, String maritalStatus, String currentLocation, String birthCountry, String occupation, String presentNationality, Date DateOfBirth, Address Adrs, String typeofVisaEnrollment, Passport p) {
+    public void initData(String email, String sex, String firstName, String lastName, String maritalStatus, String currentLocation, String birthCountry, String occupation, String presentNationality, Date DateOfBirth, Address Adrs, String typeofVisaEnrollment, Passport p, String typeofVisa) {
         this.email = email;
         this.sex = sex;
         this.firstName = firstName;
@@ -67,6 +69,7 @@ public class ApplyForAVisaScene5Controller implements Initializable {
         this.permanentAddress = Adrs;
         this.typeofVisaEnrollment = typeofVisaEnrollment;
         this.p = p;
+        this.typeOfVisa = typeofVisa;
     }
 
     @Override
@@ -89,10 +92,15 @@ public class ApplyForAVisaScene5Controller implements Initializable {
     @FXML
     private void saveandproceedbuttonOnClick(ActionEvent event) throws IOException {
         durationofproposedstayval1 = durationofstaytxtfield.getText();
-        Parent root = FXMLLoader.load(getClass().getResource("ApplyForAVisaScene6.fxml"));
-        Scene scene = new Scene(root);
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("ApplyForAVisaScene6.fxml"));
+        Parent personViewParent = loader.load();
+        Scene personViewScene = new Scene(personViewParent);
+        //access the controller
+        ApplyForAVisaScene6Controller controller = loader.getController();
+        controller.initData(email, sex, firstName, lastName, maritalStatus, currentLocation, birthCountry, occupation, presentNationality, DateofBirth, permanentAddress, typeofVisaEnrollment, p, typeOfVisa, tentativedateofarrivalval, durationofproposedstayval1, durationofproposedstayval2, bdvisaofficelocation);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        window.setScene(scene);
+        window.setScene(personViewScene);
         window.show();
     }
 
@@ -118,6 +126,7 @@ public class ApplyForAVisaScene5Controller implements Initializable {
 
     @FXML
     private void durationofproposedstaycomboBox(ActionEvent event) {
+        durationofproposedstayval2 = durationofproposedstaycomboBox.getValue();
     }
 
 }
