@@ -12,3 +12,6 @@
 
 # Practice Problem 6
 ![PPr6](https://github.com/SyedT1/OOP/blob/main/Varsity%20Lectures/Practice%20Problems%202/imgsrc/6.png)
+
+# Practice Problem 8
+![PPr8](https://github.com/SyedT1/OOP/blob/main/Varsity%20Lectures/Practice%20Problems%202/imgsrc/q8.png)
