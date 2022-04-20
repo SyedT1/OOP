@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="569.0" prefWidth="785.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.CheckVisaApplicationRequestController">
+   <children>
+      <TableView fx:id="tableview" layoutX="26.0" layoutY="37.0" onMouseClicked="#selectPersonMouseClick" prefHeight="318.0" prefWidth="729.0">
+        <columns>
+          <TableColumn fx:id="namecolumn" prefWidth="223.0" text="Name" />
+          <TableColumn fx:id="countrycolumn" prefWidth="218.0" text="Country" />
+            <TableColumn fx:id="passportcolumn" prefWidth="287.0" text="PassportNo" />
+        </columns>
+      </TableView>
+      <Button layoutX="33.0" layoutY="474.0" mnemonicParsing="false" onAction="#backbuttonOnClick" prefHeight="60.0" prefWidth="155.0" text="Back" />
+      <Label fx:id="noOfApprovedvisaApplicants" layoutX="596.0" layoutY="474.0" prefHeight="60.0" prefWidth="79.0" />
+      <Label layoutX="243.0" layoutY="478.0" prefHeight="49.0" prefWidth="364.0" text="  Number of Approved Visa Applicants : ">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Button layoutX="294.0" layoutY="371.0" mnemonicParsing="false" onAction="#loadtableOnClick" prefHeight="60.0" prefWidth="155.0" text="Load Table" />
+   </children>
+</AnchorPane>

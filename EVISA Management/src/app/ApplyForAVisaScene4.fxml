@@ -8,10 +8,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="512.0" prefWidth="876.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17" fx:controller="app.ApplyForAVisaScene4Controller">
+<AnchorPane id="AnchorPane" prefHeight="512.0" prefWidth="876.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.ApplyForAVisaScene4Controller">
    <children>
-      <Label layoutX="232.0" layoutY="34.0" prefHeight="33.0" prefWidth="443.0" text="  PART -  3:   Travel Document">
+      <Label layoutX="224.0" layoutY="26.0" prefHeight="33.0" prefWidth="443.0" text="  PART -  3:   Travel Document">
          <font>
             <Font name="System Bold" size="23.0" />
          </font>
@@ -54,5 +53,11 @@
       <ComboBox fx:id="passportTypeComboBox" layoutX="197.0" layoutY="163.0" onAction="#passportTypeComboBoxOnClick" prefHeight="24.0" prefWidth="213.0" promptText="             ---SELECT---" />
       <Button layoutX="34.0" layoutY="431.0" mnemonicParsing="false" onAction="#backbuttonOnClick" prefHeight="49.0" prefWidth="104.0" text="Back" />
       <Button layoutX="669.0" layoutY="431.0" mnemonicParsing="false" onAction="#saveandproceedbuttonOnClick" prefHeight="49.0" prefWidth="162.0" text="Save and Proceed" />
+      <Label layoutX="36.0" layoutY="69.0" prefHeight="33.0" prefWidth="171.0" text="                  NID No:">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="nidNoTxtfield" layoutX="197.0" layoutY="74.0" prefHeight="13.0" prefWidth="213.0" promptText="Enter your NID No" />
    </children>
 </AnchorPane>

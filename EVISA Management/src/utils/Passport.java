@@ -5,22 +5,29 @@
  */
 package utils;
 
+import java.io.Serializable;
+
 /**
  *
  * @author thinker
  */
-public class Passport {
+public class Passport implements Serializable{
 
-    private String passportNo, passportType;
-    private String placeofissue;
-    private Date dateofissue, dateofexpiry;
+    public String passportNo, passportType;
+    public String placeofissue,NID;
+    public Date dateofissue, dateofexpiry;
 
-    public Passport(String passportNo, String placeofissue, Date dateofissue, Date dateofexpiry, String passportType) {
+    public Passport(String passportNo, String placeofissue, Date dateofissue, Date dateofexpiry, String passportType,String NID) {
         this.passportNo = passportNo;
         this.placeofissue = placeofissue;
         this.dateofissue = dateofissue;
         this.dateofexpiry = dateofexpiry;
         this.passportType = passportType;
+        this.NID = NID;
+    }
+
+    public String getNID() {
+        return NID;
     }
 
     public String getPassportNo() {

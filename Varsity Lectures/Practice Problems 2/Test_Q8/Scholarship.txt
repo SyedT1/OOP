@@ -1,0 +1,1 @@
+ID is1830032,name is = A,cgpa is = 3.9ID is1830032,name is = A,cgpa is = 3.9ID is193333,name is = A,cgpa is = 3.8

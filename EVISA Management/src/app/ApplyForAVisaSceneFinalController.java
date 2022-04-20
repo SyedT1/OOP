@@ -38,8 +38,6 @@ public class ApplyForAVisaSceneFinalController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        displayVisaApplicantLoginID.setText("Your login ID is " + loginID);
-        displayVisaApplicantUserPassword.setText("Your password is " + password);
     }
 
     public void initData(String loginID, String password) {
@@ -54,6 +52,12 @@ public class ApplyForAVisaSceneFinalController implements Initializable {
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(scene);
         window.show();
+    }
+
+    @FXML
+    private void getyourloginIDandpasswordOnClick(ActionEvent event) {
+        displayVisaApplicantLoginID.setText("Your login ID is " + this.loginID);
+        displayVisaApplicantUserPassword.setText("Your password is " + this.password);
     }
 
 }

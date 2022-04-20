@@ -50,6 +50,8 @@ public class ApplyForAVisaScene4Controller implements Initializable {
     private TextField placeOfissuetxtfield;
     @FXML
     private ComboBox<String> passportTypeComboBox;
+    @FXML
+    private TextField nidNoTxtfield;
 
     public void initData(String email, String sex, String firstName, String lastName, String maritalStatus, String currentLocation, String birthCountry, String occupation, String presentNationality, Date DateOfBirth, Address Adrs, String typeofVisaEnrollment) {
         this.email = email;
@@ -87,7 +89,7 @@ public class ApplyForAVisaScene4Controller implements Initializable {
 
     @FXML
     private void saveandproceedbuttonOnClick(ActionEvent event) throws IOException {
-        p = new Passport(passportNoTextfield.getText(), placeOfissuetxtfield.getText(), DOI, DOE, passportType);
+        p = new Passport(passportNoTextfield.getText(), placeOfissuetxtfield.getText(), DOI, DOE, passportType, nidNoTxtfield.getText());
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("ApplyForAVisaScene5.fxml"));
         Parent personViewParent = loader.load();

@@ -5,11 +5,13 @@
  */
 package utils;
 
+import java.io.Serializable;
+
 /**
  *
  * @author thinker
  */
-public class Address {
+public class Address implements Serializable{
 
     private String street, city, zipcode, country;
 
